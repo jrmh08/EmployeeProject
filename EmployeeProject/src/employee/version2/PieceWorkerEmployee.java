@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package employee.version1;
+package employee.version2;
 
 import java.text.DecimalFormat;
 
@@ -11,60 +11,22 @@ import java.text.DecimalFormat;
  *
  * @author jerem
  */
-public class PieceWorkerEmployee {
-    private int empID;
-    private String empName;
-    private Date empDateHired = new Date();
-    private Date empBirthDate = new Date();
+public class PieceWorkerEmployee extends Employee {
     private int totalPiecesFinished;
     private double ratePerPiece;
     
     public PieceWorkerEmployee(int id, int finished, double rate){
-        this.empName = "Undefined";
+        super(id);
+        super.empName = "Undefined";
         this.setEmpID(id);
         this.setTotalPiecesFinished(finished);
         this.setRatePerPiece(rate);
     }
     
     public PieceWorkerEmployee(int id, String name, Date hired, Date bday, int finished, double rate){
-        this.empID = id;
-        this.empName = name;
-        this.empDateHired = hired;
-        this.empBirthDate = bday;
+        super(id, name, hired, bday);
         this.totalPiecesFinished = finished;
         this.ratePerPiece = rate;
-    }
-
-    public int getEmpID() {
-        return empID;
-    }
-
-    public void setEmpID(int empID) {
-        this.empID = empID;
-    }
-
-    public String getEmpName() {
-        return empName;
-    }
-
-    public void setEmpName(String empName) {
-        this.empName = empName;
-    }
-
-    public Date getEmpDateHired() {
-        return empDateHired;
-    }
-
-    public void setEmpDateHired(Date empDateHired) {
-        this.empDateHired = empDateHired;
-    }
-
-    public Date getEmpBirthDate() {
-        return empBirthDate;
-    }
-
-    public void setEmpBirthDate(Date empBirthDate) {
-        this.empBirthDate = empBirthDate;
     }
 
     public int getTotalPiecesFinished() {
@@ -100,10 +62,10 @@ public class PieceWorkerEmployee {
     public String toString(){
         StringBuilder sb = new StringBuilder();
         
-        sb.append("EmpID: ").append(this.empID).append("\n").
-           append("EmpName: ").append(this.empName).append("\n").
-           append("EmpDateHired: ").append(this.empDateHired).append("\n").
-           append("EmpBirthDate: ").append(this.empBirthDate).append("\n").
+        sb.append("EmpID: ").append(super.empID).append("\n").
+           append("EmpName: ").append(super.empName).append("\n").
+           append("EmpDateHired: ").append(super.empDateHired).append("\n").
+           append("EmpBirthDate: ").append(super.empBirthDate).append("\n").
            append("Total Sales: ").append(this.totalPiecesFinished).append("\n").
            append("Rate/Piece: ").append(this.ratePerPiece).append("\n").
            append("Salary: ").append(df.format(this.computeSalary()));

@@ -5,6 +5,8 @@
  */
 package employee.version2;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author User
@@ -85,13 +87,18 @@ public class Date {
         this.year = year;
     }
     
+    private static DecimalFormat df = new DecimalFormat("0.00");
+    
     public void displayDate(){
         System.out.println(toString());
     }
     
     @Override
     public String toString(){
-        return 
-                this.month+"/"+this.day+"/"+this.year;
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append(this.month).append("/").append(this.day).append("/").append(this.year);
+        
+        return sb.toString();
     }
 }

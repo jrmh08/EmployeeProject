@@ -10,10 +10,26 @@ package employee.version2;
  * @author User
  */
 public class Employee {
-    private int empID;
-    private String empName;
-    private Date empDateHired = new Date();
-    private Date empBirthDate = new Date();
+    protected int empID;
+    protected String empName;
+    protected Date empDateHired = new Date();
+    protected Date empBirthDate = new Date();
+    
+    public Employee(int id){
+        this.empID = id;
+    }
+    
+    public Employee(int id, Date hired){
+        this.empID = id;
+        this.empDateHired = hired;
+    }
+    
+    public Employee(int id, String name, Date hired, Date bday){
+        this.empID = id;
+        this.empName = name;
+        this.empDateHired = hired;
+        this.empBirthDate = bday;
+    }
 
     public int getEmpID() {
         return empID;
@@ -46,6 +62,5 @@ public class Employee {
     public void setEmpBirthDate(Date empBirthDate) {
         this.empBirthDate = empBirthDate;
     }
-    
-    
+      
 }

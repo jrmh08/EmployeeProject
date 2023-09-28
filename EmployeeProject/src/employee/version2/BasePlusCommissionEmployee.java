@@ -3,32 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package employee.version1;
+package employee.version2;
 
 import java.text.DecimalFormat;
 
 /**
  *
- * @author User
+ * @author jerem
  */
-public class BasePlusCommissionEmployee {
-    private int empID;
-    private String empName;
-    private Date empDateHired = new Date();
-    private Date empBirthDate = new Date();
-    private double totalSales;
+public class BasePlusCommissionEmployee extends CommissionEmployee{
     private double baseSalary;
     
-    
-    
-    public BasePlusCommissionEmployee(int id, Date hired, double bsalary){
-        this.empName = "Undef";
+    public BasePlusCommissionEmployee(int id, double sales, double bsalary){
+        super(id, sales);
+        super.empName = "Undef";
         this.setEmpID(id);
-        this.setEmpDateHired(hired);
+        this.setTotalSales(sales);
         this.setBaseSalary(bsalary);
     }
     
     public BasePlusCommissionEmployee(int id, String name, Date hired, Date bday, double sales, double bsalary){
+        super(id, name, hired, bday, sales);
         this.empID = id;
         this.empName = name;
         this.empDateHired = hired;
@@ -37,46 +32,6 @@ public class BasePlusCommissionEmployee {
         this.baseSalary = bsalary;
     }
 
-    public int getEmpID(){
-        return empID;
-    }
-
-    public void setEmpID(int empID) {
-        this.empID = empID;
-    }
-
-    public String getEmpName() {
-        return empName;
-    }
-
-    public void setEmpName(String empName) {
-        this.empName = empName;
-    }
-
-    public Date getEmpDateHired() {
-        return empDateHired;
-    }
-
-    public void setEmpDateHired(Date empDateHired) {
-        this.empDateHired = empDateHired;
-    }
-
-    public Date getEmpBirthDate() {
-        return empBirthDate;
-    }
-
-    public void setEmpBirthDate(Date empBirthDate) {
-        this.empBirthDate = empBirthDate;
-    }
-
-    public double getTotalSales() {
-        return totalSales;
-    }
-
-    public void setTotalSales(double totalSales) {
-        this.totalSales = totalSales;
-    }
-    
     public double getBaseSalary() {
         return baseSalary;
     }
@@ -103,6 +58,7 @@ public class BasePlusCommissionEmployee {
     
     private static DecimalFormat df = new DecimalFormat("0.00");
     
+    @Override
     public void displayInfo(){
         System.out.println(toString());
     }
@@ -122,6 +78,5 @@ public class BasePlusCommissionEmployee {
         
         return sb.toString();
     }
-
     
 }

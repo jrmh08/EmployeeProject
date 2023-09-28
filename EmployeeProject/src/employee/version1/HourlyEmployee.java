@@ -24,7 +24,6 @@ public class HourlyEmployee {
         this.setEmpID(id);
         this.setTotalHoursWorked(hours);
         this.setRatePerHour(rate);
-        
     }
                 
     public HourlyEmployee(int id, String name, Date hired, Date bday, double hours, double rate){
@@ -101,14 +100,18 @@ public class HourlyEmployee {
     
     @Override
     public String toString(){
-        return 
-                "EmpID: "+this.empID+"\n"+
-                "EmpName: "+this.empName+"\n"+
-                "EmpDateHired: "+this.empDateHired+"\n"+
-                "EmpBirthDate: "+this.empBirthDate+"\n"+
-                "Hours Worked: "+this.totalHoursWorked+"\n"+
-                "Rate per Hour: "+this.ratePerHour+"\n"+
-                "Salary: "+df.format(this.computeSalary());
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("EmpID: ").append(this.empID).append("\n").
+           append("EmpName: ").append(this.empName).append("\n").
+           append("EmpDateHired: ").append(this.empDateHired).append("\n").
+           append("EmpBirthDate: ").append(this.empBirthDate).append("\n").
+           append("Total Sales: ").append(this.totalHoursWorked).append("\n").
+           append("Rate/Piece: ").append(this.ratePerHour).append("\n").
+           append("Salary: ").append(df.format(this.computeSalary()));
+        
+        
+        return sb.toString();
     }
     
     

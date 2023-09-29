@@ -14,7 +14,10 @@ import java.text.DecimalFormat;
 public class CommissionEmployee extends Employee{
     protected double totalSales;
     
-    
+    public CommissionEmployee(int id, double sales){
+        super(id);
+        this.setTotalSales(sales);
+    }
     
     public CommissionEmployee(int id, Date hired, double sales){
         super(id, hired);
@@ -33,9 +36,7 @@ public class CommissionEmployee extends Employee{
         this.totalSales = sales;
     }
     
-    public CommissionEmployee(double sales){
-        this.setTotalSales(sales);
-    }
+    
 
     public double getTotalSales() {
         return totalSales;
@@ -77,7 +78,6 @@ public class CommissionEmployee extends Employee{
            append("EmpBirthDate: ").append(super.empBirthDate).append("\n").
            append("Total Sales: ").append(this.totalSales).append("\n").
            append("Salary: ").append(df.format(this.computeSalary()));
-        
         
         return sb.toString();
     }

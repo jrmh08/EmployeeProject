@@ -70,7 +70,6 @@ public class PieceWorkerEmployee extends Employee {
            append("Rate/Piece: ").append(this.ratePerPiece).append("\n").
            append("Salary: ").append(df.format(this.computeSalary()));
         
-        
         return sb.toString();
     }
     

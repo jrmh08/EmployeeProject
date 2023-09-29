@@ -75,7 +75,6 @@ public class BasePlusCommissionEmployee extends CommissionEmployee{
            append("Base Salary: ").append(this.baseSalary).append("\n").
            append("Salary: ").append(df.format(this.computeSalary()));
         
-        
         return sb.toString();
     }
     
